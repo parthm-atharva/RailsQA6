@@ -1,0 +1,5 @@
+<h1>Welcome to Rails QA</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'Questions', questions_path, class: 'question' %>
+<% end %>
