@@ -5,7 +5,7 @@ class FollowsController < ApplicationController
     follow_found = Follow.where(user_id: current_user.id, followable_type: "User", followable_id: params[:id]).any?
     if follow_found
       flash[:notice] = 'User already followed'
-      redirect_to questions_path
+      redirect_to root_path
     else
       follow = Follow.new(user_id: current_user.id)
       user = User.find_by(id: params[:id])
@@ -19,7 +19,7 @@ class FollowsController < ApplicationController
     follow_found = Follow.where(user_id: current_user.id, followable_type: "Topic", followable_id: params[:id]).any?
     if follow_found
       flash[:notice] = 'Topic already followed'
-      redirect_to questions_path
+      redirect_to root_path
     else
       follow = Follow.new(user_id: current_user.id)
       topic = Topic.find_by(id: params[:id])
